@@ -1,4 +1,4 @@
-# 1 내 풀이
+# 내 풀이
 def solution(lottos, win_nums):
     cnt = 0
     guess = lottos.count(0)
