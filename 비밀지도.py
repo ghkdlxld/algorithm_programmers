@@ -1,16 +1,14 @@
-def binary(num, n):
-    ref = 0 * n
-    ans = ''
-    while num > 0:
-        ans = str(num % 2) + ans
-        num = num // 2
-    return ans
-
+def trans(n):
+    if n == '1':
+        return '#'
+    else:
+        return ' '
 
 def solution(n, arr1, arr2):
-    map = []
+    ans = []
     for i in range(n):
-        map(int, list(binary(arr1[i], n)))
-        map(int, list(binary(arr2[i], n)))
-
-    return 0
+        tmp = bin(arr1[i]|arr2[i])[2:]
+        line = '0'*(n-len(tmp)) + tmp
+        x = ''.join(map(trans, list(line)))
+        ans.append(x)
+    return ans
