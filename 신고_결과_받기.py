@@ -1,20 +1,14 @@
-print("학점 계산기")
-subject_num = int(input("number of subject : "))
+def solution(id_list, report, k):
+    def mail(to):
+        for i in range(len(id_list)):
+            if link[to][i] == 1:
+                ans[i] += 1
 
-arr = []
-for i in range(1, subject_num+1):
-    arr.append(int(input(f"adding your {i}_grade : ")))
-
-
-print("멘티여러분 고생많으셨습니다")
-avg = sum(arr)/subject_num
-print(f"Average : {avg}")
-
-if avg > 90:
-    grade = 'A'
-elif avg > 80:
-    grade = 'B'
-else:
-    grade = 'F'
-
-print(f"Your grade : {grade}")
+    ans = [0] * len(id_list)
+    link = [[0] * len(id_list) for _ in range(len(id_list))]
+    for ppl in report:
+        link[id_list.index(ppl.split()[1])][id_list.index(ppl.split()[0])] = 1  # to from
+    for i in range(len(id_list)):
+        if sum(link[i]) >= k:
+            mail(i)
+    return ans
