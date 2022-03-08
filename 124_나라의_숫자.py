@@ -1,4 +1,22 @@
+# 1
 def solution(n):
-    # 3진수 이용 -> 자릿수 조정
-    answer = ''
-    return answer
+    thr = ''
+    while n > 0:
+        tmp = n % 3
+        if tmp == 0:
+            thr = '4' + thr
+        else:
+            thr = str(tmp) + thr
+        n -= 1
+        n //= 3
+    return thr
+
+# 2
+def solution(n):
+    num = ['1', '2', '4']
+    thr = ''
+    while n > 0:
+        n -= 1
+        thr = num[n%3] + thr
+        n //= 3
+    return thr
